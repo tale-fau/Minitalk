@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_errors_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:40:22 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/21 17:22:31 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/20 17:14:01 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/23 16:54:47 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minitalk.h"
+#include "../../includes/minitalk.h"
 
-int	main(int ac, char **av)
+int	ft_errors(int i)
 {
-	int	pid;
-
-	if (ac == 3)
-	{
-		pid = ft_atoi(av[1]);
-		pid_check(av[1]);
-		send_message(av[2], pid);
-	}
-	else
-		ft_errors(1);
-	return (0);
+	if (i == 1)
+		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
+	else if (i == 2)
+		ft_putstr_fd("Error\nInvalid PID\n", 2);
+	else if (i == 3)
+		ft_putstr_fd("Error\nOverflow atoi\n", 2);
+	else if (i == 4)
+		ft_putstr_fd("Error\nUnable to send signal\n", 2);
+	exit(1);
 }

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   pid_check_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:41:36 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 15:13:51 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/20 17:23:36 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/23 16:55:24 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../../includes/minitalk.h"
 
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <sys/types.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+int	pid_check(char *pid)
+{
+	int	i;
 
-# define MAX_PID	4194304
-
-int		ft_errors(int i);
-int		pid_check(char *pid);
-void	send_message(char *message, int pid);
-void	init_signal(void);
-void	ft_putnbr_base(int nbr, char *base);
-void	message_bonus(void);
-
-#endif
+	i = -1;
+	while (pid[++i])
+		if (ft_isdigit(pid[i]) == 1)
+			ft_errors(2);
+	if (ft_atoi(pid) > MAX_PID && ft_atoi(pid) < 1)
+		ft_errors(2);
+	return (0);
+}

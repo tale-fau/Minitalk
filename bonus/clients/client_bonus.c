@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 16:41:36 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 15:13:51 by tale-fau         ###   ########.fr       */
+/*   Created: 2021/08/20 16:40:22 by tale-fau          #+#    #+#             */
+/*   Updated: 2021/08/23 16:54:16 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../../includes/minitalk.h"
 
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <sys/types.h>
-# include <stdio.h>
-# include <signal.h>
-# include <stdlib.h>
+int	main(int ac, char **av)
+{
+	int	pid;
 
-# define MAX_PID	4194304
-
-int		ft_errors(int i);
-int		pid_check(char *pid);
-void	send_message(char *message, int pid);
-void	init_signal(void);
-void	ft_putnbr_base(int nbr, char *base);
-void	message_bonus(void);
-
-#endif
+	if (ac == 3)
+	{
+		pid = ft_atoi(av[1]);
+		pid_check(av[1]);
+		send_message(av[2], pid);
+	}
+	else
+		ft_errors(1);
+	return (0);
+}
