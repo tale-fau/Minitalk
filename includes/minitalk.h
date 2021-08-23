@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:41:36 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 15:13:51 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/23 18:20:48 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_errors(int i);
 int		pid_check(char *pid);
 void	send_message(char *message, int pid);
 void	init_signal(void);
-void	ft_putnbr_base(int nbr, char *base);
 void	message_bonus(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 17:14:01 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/21 17:28:01 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/23 18:34:52 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	ft_errors(int i)
 		ft_putstr_fd("Error\nOverflow atoi\n", 2);
 	else if (i == 4)
 		ft_putstr_fd("Error\nUnable to send signal\n", 2);
+	else if (i == 5)
+		ft_putstr_fd("Error\nBad arguments for server\n", 2);
 	exit(1);
 }

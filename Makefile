@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 17:36:16 by tale-fau          #+#    #+#              #
-#    Updated: 2021/08/23 17:03:44 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/08/23 18:30:30 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ SERVER_OBJS	=	${SERVER_SRCS:.c=.o}
 
 JOINED_SRCS	=	./joined_resources/pid_check.c \
 					./joined_resources/ft_errors.c \
-					./joined_resources/ft_putnbr_base.c
 
 JOINED_OBJS	=	${JOINED_SRCS:.c=.o}
 
@@ -61,7 +60,6 @@ SERVER_SRCS_BONUS	=	./bonus/servers/message_bonus.c \
 							./bonus/servers/signal_handler_bonus.c
 
 JOINED_SRCS_BONUS	=	./bonus/joined_resources/ft_errors_bonus.c \
-							./bonus/joined_resources/ft_putnbr_base_bonus.c \
 							./bonus/joined_resources/pid_check_bonus.c
 
 CLIENT_OBJS_BONUS	=	${CLIENT_SRCS_BONUS:.c=.o}
@@ -75,29 +73,30 @@ JOINED_OBJS_BONUS	=	${JOINED_SRCS_BONUS:.c=.o}
 all:	${CLIENT_NAME} ${SERVER_NAME}
 
 $(%.o): $(%.c)
-		$(CC) -o $@ -c $^
+		@$(CC) -o $@ -c $^
 
 ${CLIENT_NAME}:	${CLIENT_OBJS} ${JOINED_OBJS}
 					@make -C ${LIB_DIR}
 					@make -C ${LIB_DIR} bonus
-					${CC} -o $@ ${CLIENT_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
+					@${CC} -o $@ ${CLIENT_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
 
 ${SERVER_NAME}:	${SERVER_OBJS}
-					${CC} -o $@ ${SERVER_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
+					@${CC} -o $@ ${SERVER_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
 
 bonus:	${NAME_CLIENT_BONUS} ${NAME_SERVER_BONUS}
 
 $(NAME_CLIENT_BONUS): ${CLIENT_OBJS_BONUS} ${JOINED_OBJS_BONUS}
 						@make -C ${LIB_DIR}
 						@make -C ${LIB_DIR} bonus
-						$(CC) -o $@ ${CLIENT_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS}  -I./includes
+						@$(CC) -o $@ ${CLIENT_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS}  -I./includes
 
 $(NAME_SERVER_BONUS): ${SERVER_OBJS_BONUS}
-						$(CC) -o $@ ${SERVER_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS} -I./includes
+						@$(CC) -o $@ ${SERVER_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS} -I./includes
 
 clean:
 					@rm -f servers/*.o
 					@rm -f clients/*.o
+					@rm -f joined_resources/*.o
 					@rm -f bonus/*/*.o
 					@make -C libft/ clean
 					@echo "\n files deleted\n"

@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 15:53:57 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 14:50:03 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/23 18:37:06 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	msg_handler(char msg)
 	if (msg == '\0' || index == 1024)
 	{
 		ft_putstr_fd(buffer, 1);
+		if (msg == '\0')
+			ft_putchar_fd('\n', 1);
 		index = 0;
 	}
 }

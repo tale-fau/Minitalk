@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 15:53:57 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 17:12:16 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/23 18:14:15 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ unsigned char	reverse_bits(unsigned char b)
 
 void	msg_handler(char msg)
 {
-	static char	buffer[1024];
+	static char	buffer[2048];
 	static int	index = 0;
 
 	if (index == 0)
-		ft_bzero(buffer, 1024);
+		ft_bzero(buffer, 2048);
 	buffer[index] = msg;
 	index++;
-	if (msg == '\0' || index == 1024)
+	if (msg == '\0' || index == 2048)
 	{
 		if (msg == '\0')
 			message_bonus();

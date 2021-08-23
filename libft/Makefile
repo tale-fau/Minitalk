@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/09 19:01:04 by tale-fau          #+#    #+#              #
-#    Updated: 2021/01/08 14:43:49 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/08/23 18:23:18 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,12 +68,12 @@ CC			=	gcc
 FLAGS		=	-Wall -Wextra -Werror
 
 $(NAME):	${OBJS}
-			ar rc ${NAME} ${OBJS}
+			@ar rc ${NAME} ${OBJS}
 
 all:		${NAME}
 
 .c.o:		${SRCS} ${SRCS_BONUS}
-			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+			@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean:
 			rm -f ${OBJS} ${OBJS_BONUS}
