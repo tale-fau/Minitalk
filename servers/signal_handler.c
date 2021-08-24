@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 15:53:57 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/24 21:53:21 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/25 00:39:28 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	byte_constructor(int c)
 	static int	byte;
 
 	if (c == SIGUSR2)
-		byte += 1 << (7  - i);
+		byte += 1 << (7 - i);
 	i++;
 	if (i == 8)
 	{
