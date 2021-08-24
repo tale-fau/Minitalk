@@ -31,7 +31,7 @@ typedef struct s_transmit
 int		ft_errors(int i);
 int		pid_check(char *pid);
 void	send_message(char *message, int pid);
-void	init_signal(void);
 void	message_bonus(void);
+void	byte_constructor(int c);
 
 #endif

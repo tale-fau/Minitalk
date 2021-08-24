@@ -12,40 +12,18 @@
 
 #include "../includes/minitalk.h"
 
-static t_transmit	g_trs;
-
-unsigned char	reverse_bits(unsigned char b)
-{
-	unsigned char	r;
-	unsigned int	byte_len;
-
-	r = 0;
-	byte_len = 8;
-	while (byte_len--)
-	{
-		r = (r << 1) | (b & 1);
-		b >>= 1;
-	}
-	return (r);
-}
-
 void	byte_constructor(int c)
 {
-	g_trs.msg += ((c & 1) << g_trs.size);
-	g_trs.size++;
-	if (g_trs.size == 7)
-	{
-		ft_putchar_fd(g_trs.msg, 1);
-		if (!g_trs.msg)
-			ft_putchar_fd('\n', 1);
-		g_trs.msg = 0;
-		g_trs.size = 0;
-	}
-}
+	static int	i;
+	static int	byte;
 
-void	init_signal(void)
-{
-	signal(SIGUSR1, byte_constructor);
-	signal(SIGUSR2, byte_constructor);
-	pause();
+	if (c == SIGUSR2)
+		byte += 1 << (7  - i);
+	i++;
+	if (i == 8)
+	{
+		ft_putchar_fd(byte, 1);
+		i = 0;
+		byte = 0;
+	}
 }

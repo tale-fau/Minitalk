@@ -20,7 +20,7 @@ void	send_signal(int pid, int signal)
 
 int	bit_equals_one(char c, int j)
 {
-	return ((c >> j) & 1);
+	return (c >> j & 1);
 }
 
 void	send_message(char *message, int pid)
@@ -32,14 +32,14 @@ void	send_message(char *message, int pid)
 	j = 0;
 	while (i <= (int)ft_strlen(message))
 	{
-		j = 0;
-		while (j < 7)
+		j = 7;
+		while (j >= 0)
 		{
 			if (bit_equals_one(message[i], j))
 				send_signal(pid, SIGUSR2);
 			else
 				send_signal(pid, SIGUSR1);
-			j++;
+			j--;
 			usleep(100);
 		}
 		i++;

@@ -12,15 +12,16 @@
 
 #include "../includes/minitalk.h"
 
-static t_transmit	g_trs;
-
 int	main(void)
 {
-	g_trs.msg = 0;
-	g_trs.size = 0;
+	ft_putstr_fd("Server PID : ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
+	signal(SIGUSR1, byte_constructor);
+	signal(SIGUSR2, byte_constructor);
 	while (1)
-		init_signal();
+	{
+		pause();
+	}
 	return (0);
 }
