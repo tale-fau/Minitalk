@@ -6,24 +6,21 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 18:55:32 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/23 17:46:07 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/24 22:51:40 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minitalk.h"
 
-int	main(int ac, char **av)
+static t_transmit	g_trs;
+
+int	main(void)
 {
-	(void)av;
-	if (ac == 1)
-	{
-		ft_putnbr_fd(getpid(), 1);
-		ft_putchar_fd('\n', 1);
+	g_trs.msg = 0;
+	g_trs.size = 0;
+	ft_putnbr_fd(getpid(), 1);
+	ft_putchar_fd('\n', 1);
+	while (1)
 		init_signal();
-		while (1)
-			;
-	}
-	else
-		ft_errors(5);
 	return (0);
 }
