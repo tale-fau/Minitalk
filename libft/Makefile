@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/09 19:01:04 by tale-fau          #+#    #+#              #
-#    Updated: 2021/08/23 18:23:18 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/08/24 16:48:51 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,8 @@ SRCS		=	ft_memset.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c 
-
-SRCS_BONUS	=	ft_lstnew.c \
+			ft_putnbr_fd.c \
+			ft_lstnew.c \
 			ft_lstadd_front.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
@@ -58,8 +57,6 @@ SRCS_BONUS	=	ft_lstnew.c \
 			ft_lstmap.c 
 
 OBJS		=	$(SRCS:.c=.o)
-
-OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
 LIB_PATH	=	-L. -lft
 
@@ -72,11 +69,11 @@ $(NAME):	${OBJS}
 
 all:		${NAME}
 
-.c.o:		${SRCS} ${SRCS_BONUS}
+.c.o:		${SRCS}
 			@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+			rm -f ${OBJS}
 
 fclean:		clean
 			rm -f ${NAME}
@@ -87,7 +84,4 @@ so:
 			$(CC) -fPIC $(FLAGS) $(SRCS)
 		gcc -shared -o libft.so $(OBJS)
 
-bonus:		${NAME} ${OBJS} ${OBJS_BONUS}
-		ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
-
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re

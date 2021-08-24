@@ -6,7 +6,7 @@
 #    By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/21 17:36:16 by tale-fau          #+#    #+#              #
-#    Updated: 2021/08/23 18:30:30 by tale-fau         ###   ########.fr        #
+#    Updated: 2021/08/24 16:50:44 by tale-fau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,21 +77,19 @@ $(%.o): $(%.c)
 
 ${CLIENT_NAME}:	${CLIENT_OBJS} ${JOINED_OBJS}
 					@make -C ${LIB_DIR}
-					@make -C ${LIB_DIR} bonus
-					@${CC} -o $@ ${CLIENT_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
+					@${CC} -o $@ ${CLIENT_OBJS} ${JOINED_OBJS} -I./includes ${LIBFT}
 
 ${SERVER_NAME}:	${SERVER_OBJS}
-					@${CC} -o $@ ${SERVER_OBJS} ${LIBFT} ${JOINED_OBJS} -I./includes
+					@${CC} -o $@ ${SERVER_OBJS} ${JOINED_OBJS} -I./includes ${LIBFT}
 
 bonus:	${NAME_CLIENT_BONUS} ${NAME_SERVER_BONUS}
 
 $(NAME_CLIENT_BONUS): ${CLIENT_OBJS_BONUS} ${JOINED_OBJS_BONUS}
 						@make -C ${LIB_DIR}
-						@make -C ${LIB_DIR} bonus
-						@$(CC) -o $@ ${CLIENT_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS}  -I./includes
+						@$(CC) -o $@ ${CLIENT_OBJS_BONUS} ${JOINED_OBJS_BONUS}  -I./includes ${LIBFT}
 
 $(NAME_SERVER_BONUS): ${SERVER_OBJS_BONUS}
-						@$(CC) -o $@ ${SERVER_OBJS_BONUS} ${LIBFT} ${JOINED_OBJS_BONUS} -I./includes
+						@$(CC) -o $@ ${SERVER_OBJS_BONUS} ${JOINED_OBJS_BONUS} -I./includes ${LIBFT}
 
 clean:
 					@rm -f servers/*.o
