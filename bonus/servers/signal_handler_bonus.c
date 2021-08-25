@@ -6,24 +6,11 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 15:53:57 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/25 01:45:39 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/25 15:25:31 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minitalk.h"
-
-unsigned char reverse_bits(unsigned char b)
-{
-	unsigned char	r = 0;
-	unsigned		byte_len = 8;
-
-	while (byte_len--)
-	{
-		r = (r << 1) | (b & 1);
-		b >>= 1;
-	}
-	return (r);
-}
 
 void	byte_constructor(int c)
 {
