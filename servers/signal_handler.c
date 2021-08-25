@@ -6,7 +6,7 @@
 /*   By: tale-fau <tale-fau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 15:53:57 by tale-fau          #+#    #+#             */
-/*   Updated: 2021/08/25 00:39:28 by tale-fau         ###   ########.fr       */
+/*   Updated: 2021/08/25 02:02:34 by tale-fau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	byte_constructor(int c)
 	if (i == 8)
 	{
 		ft_putchar_fd(byte, 1);
+		if (byte == '\0')
+			ft_putchar_fd('\n', 1);
 		i = 0;
 		byte = 0;
 	}
